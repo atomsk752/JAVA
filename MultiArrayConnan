@@ -1,0 +1,60 @@
+// 코난문제. 다차원 배열을 만들어서 특정값의 위치를 찾기
+
+import java.util.Arrays;
+
+public class MuitiArr {
+
+	public static void main(String[] args) {
+		
+		int [][] arr = new int[10][];
+		
+		int value = 1;
+		
+		int connan = 34;
+		
+		int floor = 0;
+		
+		int number = 0;
+		
+		for(int i = 0; i < arr.length; i++) {
+			int[] temp = new int[i+1];
+			
+			for(int j = 0; j < temp.length; j++) {
+				temp[j] = value++;
+			}
+			
+			arr[i] = temp;
+		}
+		
+		for (int[] tempArr : arr) {
+			
+			System.out.println(Arrays.toString(tempArr));
+		}
+
+		
+		for (int y = 0; y < 10; y++) {
+			
+			if (connan >= arr[y][0])
+				
+				floor =  y+1;
+				
+
+		}
+		
+		for (int x = 0; x < 10; x++) {
+			
+			if (connan >= arr[x][0])
+							
+				number = connan - arr[x][0]+1;
+			
+
+		}
+		
+		
+		System.out.println("코난이 있는 층은" + floor + "층");
+		System.out.println("방호수는" + number + "호");
+		
+		
+	}
+	
+}
