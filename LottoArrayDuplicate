@@ -1,0 +1,40 @@
+import java.util.Arrays;
+
+// int 배열 6
+// 1- 45 까지 숫자 만들기
+// 중복제거
+public class LottoEx {
+
+	public static boolean CheckArray(int[] arr, int target) {
+		boolean result = false;
+		for (int i = 0, len = arr.length; i < len; i++) {
+			if (arr[i] == target) {
+				result = true;
+				break;
+			}
+		}
+		return result;
+	}
+
+	public static void main(String[] args) {
+
+		int[] result = new int[6];
+		for (int i = 0, len = result.length; i < len; i++) {
+
+			int value = (int) (Math.random() * 45) + 1;
+			// System.out.println(value);
+
+			// 중복 체크 필요
+			boolean duplicated = CheckArray(result, value);
+			if (duplicated) {
+				i--;
+				continue;
+			}
+
+			result[i] = value;
+
+		}
+
+		System.out.println(Arrays.toString(result));
+	}
+}
